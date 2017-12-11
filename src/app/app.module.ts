@@ -1,23 +1,15 @@
+// Core modules
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule }   from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Material  inputs
-import { MatInputModule, MatCheckboxModule, MatToolbarModule } from '@angular/material';
-import { MatIconModule } from '@angular/material';
-import { MatListModule } from '@angular/material';
-import { MatCardModule } from '@angular/material';
-import { MatButtonModule } from '@angular/material';
-import { MatGridListModule } from '@angular/material';
-import { MatMenuModule } from '@angular/material';
-import { MatSidenavModule } from '@angular/material';
-import { MatChipsModule } from '@angular/material';
-import { MatRadioModule } from '@angular/material';
+import { MatToolbarModule,MatIconModule,MatListModule,MatCardModule,MatInputModule,MatCheckboxModule,MatButtonModule,MatGridListModule,MatChipsModule,MatMenuModule,MatRadioModule} from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
 
@@ -41,25 +33,11 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatListModule,
-    MatCardModule,
-    MatInputModule, 
-    MatCheckboxModule,
-    MatButtonModule,
-    MatGridListModule,
-    MatChipsModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatSelectModule,
-    MatStepperModule,
-    MatRadioModule,
-    FormsModule, 
-    MatMenuModule,
     ReactiveFormsModule,
-    HttpModule,
+    MatToolbarModule,MatIconModule,MatListModule,MatCardModule,MatInputModule,MatCheckboxModule,MatButtonModule,MatGridListModule,MatChipsModule,MatMenuModule,MatRadioModule,   
+    MatSelectModule,    
+    MatStepperModule,
+    HttpModule,    
     HttpClientModule,
     RouterModule,
     FlexLayoutModule
