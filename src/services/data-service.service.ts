@@ -9,38 +9,34 @@ class promise {};
 
 @Injectable() 
 export class DataService {
+  host: string = 'http://client.theline.digital/proxy/';
   
   constructor(private http: HttpClient) {}
 
   createStream(data) : Observable<promise> { 
-    var localhost = 'http://localhost:3000/createStream';
     return this.http.post(
-      localhost,
+      this.host+'createStream',
       data
     );
   } 
 
   publishComment(data) : Observable<promise> {
-    var localhost = 'http://localhost:3000/publishComment';
     return this.http.post(
-      localhost,
+      this.host+'publishComment',
       data
     );
   }
 
   listStreams() : Observable<promise> { 
-    var localhost = 'http://localhost:3000/listStreams';
-    return this.http.get(localhost);
+    return this.http.get(this.host+'listStreams');
   } 
 
   getStream(stream): Observable<promise> { 
-    var localhost = 'http://localhost:3000/stream/'+stream;
-    return this.http.get(localhost);
+    return this.http.get(this.host+'stream/'+stream);
   } 
 
   getOffers(stream): Observable<promise> { 
-    var localhost = 'http://localhost:3000/offers/'+stream;
-    return this.http.get(localhost);
+    return this.http.get(this.host+'offers/'+stream);
   } 
 
 
