@@ -32,9 +32,7 @@ export class AppComponent implements OnInit {
     }); 
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   publishComment() {
     this.dataService.publishComment(this.contactForm.value).subscribe(response => {
@@ -44,19 +42,15 @@ export class AppComponent implements OnInit {
 
   createStream() {
     this.stream = this.contactForm.value.reference;
-    this.dataService.createStream(this.contactForm.value).subscribe(response => {
-      console.log(response);
-    });
+    this.dataService.createStream(this.contactForm.value).subscribe(response => {});
   }
 
   loadStream(value) {
-    console.log(value);
     this.dataService.getStream(value).subscribe(response => {
       this.propertyData = response[0].data.json;
       this.blockChain = response;
     });
     this.dataService.getOffers(value).subscribe(response => {
-      console.log(response);
       this.offers = response;
     });
 

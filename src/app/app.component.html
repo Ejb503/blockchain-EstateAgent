@@ -1,151 +1,148 @@
+<app-header></app-header>
 <div class="container">
   <div class="container__inner" id="top">
 
-    <div fxHide.xs="true" class="theline"></div>
+  <div fxHide.xs="true" class="theline"></div>
 
-<mat-horizontal-stepper>
-  <mat-step>
-    <ng-template matStepLabel>Add a property</ng-template>
-        <div
-    class="container__content"
-    fxLayout
-    fxLayout.xs="column"
-    fxLayoutAlign="center"
-    fxLayoutGap="5%"
-    fxLayoutGap.xs="0"
-    >
-    <div fxFlex="50%">
-
-    <mat-card class="example-card">
-  <mat-card-content>
-      <form class="blockchain" id="step1" [formGroup]="contactForm">
-        <div class="form__inner">
-
-          <h2>Add a property</h2>
-
-          <mat-form-field class="fullwidth">
-            <input formControlName="title" matInput  placeholder="Enter a title for your property">
-          </mat-form-field>
-
-          <mat-form-field class="fullwidth">
-            <input formControlName="price" matInput  placeholder="Price ($)" type="number">
-          </mat-form-field>
-
-          <mat-form-field class="fullwidth">
-            <textarea formControlName="detail" matInput placeholder="Put a description of your property" matTextareaAutosize matAutosizeMinRows="2"
-            matAutosizeMaxRows="5"></textarea>
-          </mat-form-field>
-
-          <mat-form-field class="fullwidth">
-            <input formControlName="reference" matInput placeholder="Create a unique reference for your property (remember this!)">
-          </mat-form-field>
-
-          <mat-select formControlName="availability" placeholder="For Sale or For Rent">
-            <mat-option *ngFor="let status of availability" [value]="status">
-              {{ status }}
-            </mat-option>
-          </mat-select>
-
-          <mat-select formControlName="bedrooms" placeholder="How many bedrooms does your property have">
-            <mat-option *ngFor="let bedroom of bedrooms" [value]="bedroom">
-              {{ bedroom }}
-            </mat-option>
-          </mat-select>
-
-        </div>
-      </form> 
-      </mat-card-content>
-      <mat-card-actions>
-        <button (click)="createStream()" [disabled]="!contactForm.valid" mat-raised-button type="submit" color="primary">Publish your property on the blockchain</button>
-      </mat-card-actions>
-    </mat-card>
-
-
-    </div>
-  </div>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Manage a property</ng-template>
-    <div
-    class="container__content"
-    fxLayout
-    fxLayout.xs="column"
-    fxLayoutAlign="center"
-    fxLayoutGap="5%"
-    fxLayoutGap.xs="0"
-    >
-
-    <div fxFlex="50%">
-
-    <form class="blockchain" id="step1" [formGroup]="contactForm">
-      <div class="form__inner">
+  <mat-horizontal-stepper>
+    <mat-step>
+      <ng-template matStepLabel>Add a property</ng-template>
+      <div
+      class="container__content"
+      fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="center"
+      fxLayoutGap="5%"
+      fxLayoutGap.xs="0"
+      >
+      <div fxFlex="50%">
 
         <mat-card class="example-card">
           <mat-card-content>
-          <h2>Manage your property</h2>
-          <mat-form-field>
-              <input #uniqueId matInput placeholder="Enter your unique ID here">
-          </mat-form-field>
+            <form class="blockchain" id="step1" [formGroup]="contactForm">
+              <div class="form__inner">
+
+                <h2>Add a property</h2>
+
+                <mat-form-field class="fullwidth">
+                  <input formControlName="title" matInput placeholder="Enter a title for your property">
+                </mat-form-field>
+
+                <mat-form-field class="fullwidth">
+                  <input formControlName="price" matInput placeholder="Price ($)" type="number">
+                </mat-form-field>
+
+                <mat-form-field class="fullwidth">
+                  <textarea formControlName="detail" matInput placeholder="Put a description of your property" matTextareaAutosize matAutosizeMinRows="2"
+                  matAutosizeMaxRows="5"></textarea>
+                </mat-form-field>
+
+                <mat-form-field class="fullwidth">
+                  <input formControlName="reference" matInput placeholder="Create a unique reference for your property (remember this!)">
+                </mat-form-field>
+
+                <mat-select formControlName="availability" placeholder="For Sale or For Rent">
+                  <mat-option *ngFor="let status of availability" [value]="status">
+                    {{ status }}
+                  </mat-option>
+                </mat-select>
+
+                <mat-select formControlName="bedrooms" placeholder="How many bedrooms does your property have">
+                  <mat-option *ngFor="let bedroom of bedrooms" [value]="bedroom">
+                    {{ bedroom }}
+                  </mat-option>
+                </mat-select>
+
+              </div>
+            </form> 
+            </mat-card-content>
+            <mat-card-actions>
+              <button (click)="createStream()" [disabled]="!contactForm.valid" mat-raised-button type="submit" color="primary">Publish your property on the blockchain</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Manage a property</ng-template>
+      <div
+      class="container__content"
+      fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="center"
+      fxLayoutGap="5%"
+      fxLayoutGap.xs="0"
+      >
+
+      <div fxFlex="50%">
+
+        <form class="blockchain" id="step1" [formGroup]="contactForm">
+          <div class="form__inner">
+            <mat-card class="example-card">
+              <mat-card-content>
+                <h2>Manage your property</h2>
+                <mat-form-field>
+                  <input #uniqueId matInput placeholder="Enter your unique ID here">
+                </mat-form-field>
+              </mat-card-content>
+              <mat-card-actions>
+                <button (click)="loadStream(uniqueId.value)" mat-raised-button type="submit" color="primary">Publish your property on the blockchain</button>
+              </mat-card-actions>
+            </mat-card>    
+          </div>
+        </form> 
+
+        <mat-card class="example-card">
+          <mat-card-content>
+            <h2>Property information</h2>
+            <div>
+              <div>Title: {{propertyData.title}}</div>
+              <div>price: {{propertyData.price}}</div>
+              <div>bedrooms: {{propertyData.bedrooms}}</div>
+              <div>reference: {{propertyData.reference}}</div>
+              <div>availability: {{propertyData.availability}}</div>
+              <div>last edited: {{ propertyData.timeStamp | date : mediumDate }}</div>
+            </div>
           </mat-card-content>
-          <mat-card-actions>
-            <button (click)="loadStream(uniqueId.value)" mat-raised-button type="submit" color="primary">Publish your property on the blockchain</button>
-          </mat-card-actions>
+        </mat-card>    
+
+        <mat-card class="example-card">
+          <mat-card-content>
+            <h2>Property history</h2>
+            <div class="stamp" *ngFor="let block of blockChain">
+              <div>action: {{block.data.json.action}}</div>
+              <div>submitted: {{ block.data.json.timeStamp | date : mediumDate }}</div>
+              <div>txid: {{ block.txid }}</div>
+              <div>confirmations: {{ block.confirmations }}</div>
+              <div>stamped: {{ block.blocktime * 1000 | date : mediumDate }}</div>
+              <div>published by: {{block.publishers[0] }}</div>
+            </div>
+          </mat-card-content>
         </mat-card>    
 
       </div>
-    </form> 
-
-    <mat-card class="example-card">
-      <mat-card-content>
-        <h2>Property information</h2>
-        <div>
-          <div>Title: {{propertyData.title}}</div>
-          <div>price: {{propertyData.price}}</div>
-          <div>bedrooms: {{propertyData.bedrooms}}</div>
-          <div>reference: {{propertyData.reference}}</div>
-          <div>availability: {{propertyData.availability}}</div>
-          <div>last edited: {{ propertyData.timeStamp | date : mediumDate }}</div>
-        </div>
-      </mat-card-content>
-    </mat-card>    
-
-    <mat-card class="example-card">
-      <mat-card-content>
-        <h2>Property history</h2>
-        <div class="stamp" *ngFor="let block of blockChain">
-          <div>action: {{block.data.json.action}}</div>
-          <div>submitted: {{ block.data.json.timeStamp | date : mediumDate }}</div>
-          <div>txid: {{ block.txid }}</div>
-          <div>confirmations: {{ block.confirmations }}</div>
-          <div>stamped: {{ block.blocktime * 1000 | date : mediumDate }}</div>
-          <div>published by: {{block.publishers[0] }}</div>
-        </div>
-      </mat-card-content>
-    </mat-card>    
-
-    </div>
 
       <div fxFlex="50%">
 
         <mat-card class="example-card">
           <mat-card-content>
-          <h2>Offers</h2>
+            <h2>Offers</h2>
 
-          <div *ngFor="let block of offers">
-            <div>action: {{block.data.json.action}}</div>
-            <div>date: {{ block.data.json.timeStamp | date : mediumDate }}</div>
-          </div>
-
+            <div *ngFor="let block of offers">
+              <div>action: {{block.data.json.action}}</div>
+              <div>date: {{ block.data.json.timeStamp | date : mediumDate }}</div>
+            </div>
           </mat-card-content>
+
           <mat-card-actions>
           </mat-card-actions>
-        </mat-card>    
+
+        </mat-card> 
 
       </div>
     </div>
   </mat-step>
-</mat-horizontal-stepper>
-
-
+  </mat-horizontal-stepper>
+  </div>
 </div>
-</div>
+<app-footer></app-footer>
