@@ -1,7 +1,7 @@
 // Core modules
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,9 +12,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule,MatIconModule,MatListModule,MatCardModule,MatInputModule,MatCheckboxModule,MatButtonModule,MatGridListModule,MatChipsModule,MatMenuModule,MatRadioModule} from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
-
-// Pipes
-import { ReversePipe } from './reverse.pipe';
 
 // Components
 import { AppComponent } from './app.component';

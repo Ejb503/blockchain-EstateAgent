@@ -101,7 +101,7 @@
               <div>bedrooms: {{propertyData.bedrooms}}</div>
               <div>reference: {{propertyData.reference}}</div>
               <div>availability: {{propertyData.availability}}</div>
-              <div>last edited: {{ propertyData.timeStamp | date : mediumDate }}</div>
+              <div>last edited: {{ propertyData.timeStamp | date: 'dd/MM/yyyy' }}</div>
             </div>
           </mat-card-content>
         </mat-card>    
@@ -111,10 +111,10 @@
             <h2>Property history</h2>
             <div class="stamp" *ngFor="let block of blockChain">
               <div>action: {{block.data.json.action}}</div>
-              <div>submitted: {{ block.data.json.timeStamp | date : mediumDate }}</div>
+              <div>submitted: {{ block.data.json.timeStamp | date: 'dd/MM/yyyy' }}</div>
               <div>txid: {{ block.txid }}</div>
               <div>confirmations: {{ block.confirmations }}</div>
-              <div>stamped: {{ block.blocktime * 1000 | date : mediumDate }}</div>
+              <div>stamped: {{ block.blocktime * 1000 | date: 'dd/MM/yyyy' }}</div>
               <div>published by: {{block.publishers[0] }}</div>
             </div>
           </mat-card-content>
@@ -130,7 +130,7 @@
 
             <div *ngFor="let block of offers">
               <div>action: {{block.data.json.action}}</div>
-              <div>date: {{ block.data.json.timeStamp | date : mediumDate }}</div>
+              <div>date: {{ block.data.json.timeStamp | date: 'dd/MM/yyyy' }}</div>
             </div>
           </mat-card-content>
 
